@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <style>
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    .cursor { animation: blink 1s infinite; }
+    .term-bg { fill: #0d1117; }
+    .term-border { fill: none; stroke: #30363d; stroke-width: 1; }
+    .term-header { fill: #161b22; }
+    .btn-red { fill: #ff5f57; }
+    .btn-yellow { fill: #febc2e; }
+    .btn-green { fill: #28c840; }
+    .text { font-family: 'Fira Code', 'Consolas', monospace; font-size: 11px; }
+    .prompt { fill: #7ee787; }
+    .command { fill: #e6edf3; }
+    .output { fill: #8b949e; }
+    .highlight { fill: #ff7b72; }
+    .cyan { fill: #79c0ff; }
+  </style>
+  
+  <!-- Terminal window -->
+  <rect class="term-bg" x="0" y="0" width="400" height="250" rx="8"/>
+  <rect class="term-border" x="0" y="0" width="400" height="250" rx="8"/>
+  
+  <!-- Header bar -->
+  <rect class="term-header" x="0" y="0" width="400" height="28" rx="8"/>
+  <rect class="term-bg" x="0" y="20" width="400" height="10"/>
+  
+  <!-- Window buttons -->
+  <circle class="btn-red" cx="16" cy="14" r="5"/>
+  <circle class="btn-yellow" cx="34" cy="14" r="5"/>
+  <circle class="btn-green" cx="52" cy="14" r="5"/>
+  
+  <!-- Title -->
+  <text x="200" y="18" text-anchor="middle" class="text output">ase@nexus: ~/hunting</text>
+  
+  <!-- Terminal content -->
+  <text x="12" y="50" class="text prompt">❯</text>
+  <text x="28" y="50" class="text command">nmap -sV --script=vuln target.com</text>
+  
+  <text x="12" y="70" class="text output">Starting Nmap scan...</text>
+  <text x="12" y="85" class="text output">PORT     STATE  SERVICE</text>
+  <text x="12" y="100" class="text highlight">443/tcp  open   https</text>
+  <text x="12" y="115" class="text output">| vuln: </text>
+  <text x="55" y="115" class="text highlight">CVE-2024-XXXX</text>
+  
+  <text x="12" y="140" class="text prompt">❯</text>
+  <text x="28" y="140" class="text command">nuclei -t cves/ -u https://target.com</text>
+  
+  <text x="12" y="160" class="text output">[INF] Templates loaded: 847</text>
+  <text x="12" y="175" class="text cyan">[critical]</text>
+  <text x="75" y="175" class="text output">sql-injection detected</text>
+  
+  <text x="12" y="200" class="text prompt">❯</text>
+  <text x="28" y="200" class="text command">echo "target acquired"</text>
+  
+  <text x="12" y="220" class="text prompt">❯</text>
+  <rect class="cursor" x="28" y="210" width="8" height="14" fill="#7ee787"/>
+</svg>
